@@ -181,98 +181,100 @@ Add the log workspace you just created.
 
 ![Sentinel Lab Screenshot](Sentinel61.png)
 Once your sentinel instance is created go to content management. 
-Then go to content hub.
 
 ![Sentinel Lab Screenshot](Sentinel62.png)
-Search for Windows Security Event and click install.
+Then go to content hub.
 
 ![Sentinel Lab Screenshot](Sentinel63.png)
-After installation, click on manage. 
+Search for Windows Security Event and click install.
 
 ![Sentinel Lab Screenshot](Sentinel64.png)
-Select Windows Security Events via AMA and then click on open connector page.
+After installation, click on manage. 
 
 ![Sentinel Lab Screenshot](Sentinel65.png)
-Click Create data collection rule.
+Select Windows Security Events via AMA and then click on open connector page.
 
 ![Sentinel Lab Screenshot](Sentinel66.png)
-Make sure you give the data collection rule a name and select your resource group used for the lab. Click next: resources after. 
+Click Create data collection rule.
 
 ![Sentinel Lab Screenshot](Sentinel67.png)
-Expand and check everything under the Azur subscription including your resource group and virtual machine. And click next: collect after. 
+Make sure you give the data collection rule a name and select your resource group used for the lab. Click next: resources after. 
 
 ![Sentinel Lab Screenshot](Sentinel68.png)
-Make sure all security events is selected and then click Next:review + create.
+Expand and check everything under the Azur subscription including your resource group and virtual machine. And click next: collect after. 
 
 ![Sentinel Lab Screenshot](Sentinel69.png)
-Click create. 
+Make sure all security events is selected and then click Next:review + create.
 
 ![Sentinel Lab Screenshot](Sentinel70.png)
-Go back to your virtual machine in azure and click under the settings tab and then click extension, you should be able to see the extension Azure monitor windows agent. 
+Click create. 
 
 ![Sentinel Lab Screenshot](Sentinel71.png)
-Go back to the log analytics workspaces and click on your workspace from before. 
+Go back to your virtual machine in azure and click under the settings tab and then click extension, you should be able to see the extension Azure monitor windows agent. 
 
 ![Sentinel Lab Screenshot](Sentinel72.png)
-Click on Logs and change the mode on the right side to KQL mode.
+Go back to the log analytics workspaces and click on your workspace from before. 
 
 ![Sentinel Lab Screenshot](Sentinel73.png)
-Type in SecurityEvent for the first line and click Run. You should be able to see the failed login events at the bottom. 
+Click on Logs and change the mode on the right side to KQL mode.
 
 ![Sentinel Lab Screenshot](Sentinel74.png)
+Type in SecurityEvent for the first line and click Run. You should be able to see the failed login events at the bottom. 
+
+![Sentinel Lab Screenshot](Sentinel75.png)
 Enter 
 | where EventID == 4625
 | project TimeGenerated, Account, Computer, EventID, Activity, IpAddress
 Below SecurityEvent to filter search further. Wait a half an hour to a couple hours and wait for some failed login attempts before running another search if you do not see any activity. You can do a quick google search of the IP address and find out where it is, for example, the first one listed in my search is from Chile.
 
-![Sentinel Lab Screenshot](Sentinel75.png)
+![Sentinel Lab Screenshot](Sentinel76.png)
 https://drive.google.com/file/d/13EfjM_4BohrmaxqXZLB5VUBIz2sv9Siz/view?usp=sharing
 Post this link below and download the list. You will need it for later. 
 
-![Sentinel Lab Screenshot](Sentinel76.png)
+![Sentinel Lab Screenshot](Sentinel77.png)
 Go back to your sentinel instance in Azure and go under configuration and click watchlist. Click on the “go to defender portal” link. 
 
-![Sentinel Lab Screenshot](Sentinel77.png)
+![Sentinel Lab Screenshot](Sentinel78.png)
 Click new.
 
-![Sentinel Lab Screenshot](Sentinel78.png)
+![Sentinel Lab Screenshot](Sentinel79.png)
 Put geoip as name and alias. 
 
-![Sentinel Lab Screenshot](Sentinel79.png)
+![Sentinel Lab Screenshot](Sentinel80.png)
 Upload the file you just downloaded and also put network as the searchkey.
 
-![Sentinel Lab Screenshot](Sentinel80.png)
+![Sentinel Lab Screenshot](Sentinel81.png)
 Click Next.
 
-![Sentinel Lab Screenshot](Sentinel81.png)
+![Sentinel Lab Screenshot](Sentinel82.png)
 Click Create.
 
-![Sentinel Lab Screenshot](Sentinel82.png)
+![Sentinel Lab Screenshot](Sentinel83.png)
 Wait a while till upload finishes.
 
-![Sentinel Lab Screenshot](Sentinel83.png)
+![Sentinel Lab Screenshot](Sentinel84.png)
 Done.
 
-![Sentinel Lab Screenshot](Sentinel84.png)
+![Sentinel Lab Screenshot](Sentinel85.png)
 Go to your Microsoft Sentinel instance. Go under threat management and click workbooks. Did should give you an option to go to the defender portal. 
 
-![Sentinel Lab Screenshot](Sentinel85.png)
-Click add workbook. 
-Remove former elements. 
-
 ![Sentinel Lab Screenshot](Sentinel86.png)
-Click add and then select add data source + visualization.
+Click add workbook. 
 
 ![Sentinel Lab Screenshot](Sentinel87.png)
-Go to advance editor.
+Remove former elements. 
 
 ![Sentinel Lab Screenshot](Sentinel88.png)
-Delete the previous script and Copy and paste the script below and click apply.
+Click add and then select add data source + visualization.
 
 ![Sentinel Lab Screenshot](Sentinel89.png)
-https://drive.google.com/file/d/1ErlVEK5cQjpGyOcu4T02xYy7F31dWuir/view
+Go to advance editor.
 
 ![Sentinel Lab Screenshot](Sentinel90.png)
+Delete the previous script and Copy and paste the script below and click apply.
+
+https://drive.google.com/file/d/1ErlVEK5cQjpGyOcu4T02xYy7F31dWuir/view
+
 {
 	"type": 3,
 	"content": {
