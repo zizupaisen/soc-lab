@@ -1,4 +1,20 @@
-# Sentinel Project
+# Microsoft Sentinel Lab Tutorial
+
+## Objectives
+- Create Azure infrastructure (Resource Group, Virtual Network, Windows VM)
+- Configure security settings and disable firewall on the lab VM
+- Explore Windows Security Event Logs (Event ID 4625)
+- Set up Log Analytics Workspace and enable Microsoft Sentinel
+- Install Windows Security Events connector
+- Create a GeoIP Watchlist for enrichment
+- Build an interactive Attack Map Workbook using KQL
+
+## Disclaimer
+This is a personal learning lab/tutorial created for educational purposes only.  
+**All names, screenshots, and configurations shown are fictional** and do not represent any real organization, company, or production environment.  
+The steps and examples in this guide are meant for training in a test/lab Azure subscription only.
+
+## Sentinel Project
 
 ![Sentinel Lab Screenshot](Sentinel1.png)
 First, we are going to create a resource group, find resource group in Azure and click create. 
